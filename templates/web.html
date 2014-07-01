@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+
+    <form method="POST" action="{{ url_for('index') }}">
+      {{ FORM.text.label }} {{ FORM.text }}
+    </form>
+    <br/>
+
+	{% if CONTENTS %}
+	    <table class="contents">
+	        {% for i in CONTENTS %}
+	            <tr>
+	                <td>{{ i[1]['timestamp'] }}</td>
+	                <td>{{ i[1]['text'] }}</td>
+	            </tr>
+	        {% endfor %}
+	    </table>
+	{% endif %}
+
+  </body>
+</html>
