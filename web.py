@@ -12,7 +12,7 @@ from restclient import SimpleRestClient
 app = Flask(__name__)
 
 class TextForm(Form):
-    text = TextField('write something', validators=[DataRequired()])
+    text = TextField('Please write something and hit enter', validators=[DataRequired()])
 
 
 @app.route('/', methods=('GET', 'POST'))

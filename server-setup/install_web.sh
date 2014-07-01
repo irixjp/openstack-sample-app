@@ -8,4 +8,4 @@ chkconfig iptables off
 cd $(dirname $0)
 
 yum install -y gcc python-devel python-crypto python-pip mysql-devel
-pip install -r requrirements.txt
+pip install -r requirements.txt
