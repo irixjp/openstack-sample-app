@@ -1,8 +1,24 @@
 
 * 概要
   Web Server - Rest Server - MySQL の3階層システムのサンプルアプリになります。
+  [[file:server-setup/SampleApp.png]]
 
-* 設定
+* All in One でとりあえず動かす
+  nova boot 時(horizonからも可能)に以下をuserdataへ設定すると、All in One 環境ですぐに動かす事が可能です。
+
+: #!/bin/bash
+: yum install -y git
+: cd /root
+: git clone https://github.com/irixjp/openstack-sample-app.git
+: sh /root/openstack-sample-app/server-setup/install_web.sh
+: sh /root/openstack-sample-app/server-setup/install_rest.sh
+: sh /root/openstack-sample-app/server-setup/install_rest.sh
+: sh /root/openstack-sample-app/server-setup/web.init.sh
+: sh /root/openstack-sample-app/server-setup/rest.init.sh
+
+  後は Floating IPを割り当てて、ブラウザからアクセスするだけです。
+
+* 設定（詳細）
 
   - OpenStack上で3つのインスタンスを起動して設定します。
     + web server
