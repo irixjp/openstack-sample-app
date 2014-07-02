@@ -7,7 +7,7 @@
   nova boot 時(horizonからも可能)に以下をuserdataへ設定すると、All in One 環境ですぐに動かす事が可能です。
 
 : #!/bin/bash
-: yum install -y git
+: yum install -q -y git
 : cd /root
 : git clone https://github.com/irixjp/openstack-sample-app.git
 : sh /root/openstack-sample-app/server-setup/install_web.sh
@@ -28,7 +28,7 @@
   - nova boot 時に以下の userdata を与えます。
 
 : #!/bin/bash
-: yum install -y git
+: yum install -q -y git
 : cd /root
 : git clone https://github.com/irixjp/openstack-sample-app.git
 

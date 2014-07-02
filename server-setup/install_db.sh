@@ -5,7 +5,7 @@ sed -i -e 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
 iptables -F
 chkconfig iptables off
 
-yum install -y mysql-server
+yum install -y -q mysql-server
 cat << EOF > /etc/my.cnf
 [mysqld]
 datadir=/var/lib/mysql

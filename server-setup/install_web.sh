@@ -7,5 +7,5 @@ chkconfig iptables off
 
 cd $(dirname $0)
 
-yum install -y gcc python-devel python-crypto python-pip mysql-devel
-pip install -r requirements.txt
+yum install -y -q gcc python-devel python-crypto python-pip mysql-devel
+pip install -q -r requirements.txt
