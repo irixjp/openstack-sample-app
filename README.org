@@ -12,7 +12,7 @@
 : git clone https://github.com/irixjp/openstack-sample-app.git
 : sh /root/openstack-sample-app/server-setup/install_web.sh
 : sh /root/openstack-sample-app/server-setup/install_rest.sh
-: sh /root/openstack-sample-app/server-setup/install_rest.sh
+: sh /root/openstack-sample-app/server-setup/install_db.sh
 : sh /root/openstack-sample-app/server-setup/web.init.sh
 : sh /root/openstack-sample-app/server-setup/rest.init.sh
 
