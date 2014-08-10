@@ -5,39 +5,42 @@
 retval=0
 prog="rest.py"
 logfile="rest.log"
-pidfile="/var/run/sample-app/rest.pid"
 
 start () {
     echo -n $"Starting $prog"
 
-    if [ ! -d /var/run/sample-app ]; then
-       mkdir -p /var/run/sample-app
-    fi
-
-    daemon --pidfile ${pidfile} --user=root "cd $(dirname $0); cd ../; python $prog >> $logfile"
-    RETVAL=$?
+    daemon --user=root "cd $(dirname $0); cd ../; python $prog >> $logfile 2>&1 &"
+    retval=$?
     echo
-
     return $retval
+}
+
+stop () {
+    pid=`ps -ef |grep "/usr/bin/python $prog" | grep -v grep | awk '{print $2}'`
+    kill $pid
+    retval=$?
+    echo
+    return $retval
+}
+
+restart () {
+    stop
+    sleep 3
+    start
 }
 
 case "$1" in
     start)
-       start
        $1
     ;;
     stop)
-       rh_status_q || exit 0
        $1
     ;;
     restart)
        $1
     ;;
-    status)
-       rh_status
-    ;;
     *)
-       echo $"Usage: $0 {start|stop|status|restart}"
+       echo $"Usage: $0 {start|stop|restart}"
        exit 2
 esac
 
