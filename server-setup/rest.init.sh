@@ -11,8 +11,8 @@ start () {
     echo -n $"Starting $prog"
 
     if [ ! -d /var/run/sample-app ]; then
-         mkdir -p /var/run/sample-app
-    fi 
+       mkdir -p /var/run/sample-app
+    fi
 
     daemon --pidfile ${pidfile} --user=root "cd $(dirname $0); cd ../; python $prog >> $logfile"
     RETVAL=$?
