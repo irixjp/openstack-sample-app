@@ -10,13 +10,26 @@
 : yum install -q -y git
 : cd /root
 : git clone https://github.com/irixjp/openstack-sample-app.git
+: cd openstack-sample-app
+: git checkout -b v1.0 remotes/origin/v1.0
 : sh /root/openstack-sample-app/server-setup/install_web.sh
 : sh /root/openstack-sample-app/server-setup/install_rest.sh
 : sh /root/openstack-sample-app/server-setup/install_db.sh
-: sh /root/openstack-sample-app/server-setup/web.init.sh
-: sh /root/openstack-sample-app/server-setup/rest.init.sh
+: sh /root/openstack-sample-app/server-setup/web.init.sh start
+: sh /root/openstack-sample-app/server-setup/rest.init.sh start
 
   後は Floating IPを割り当てて、ブラウザからアクセスするだけです。
+
+  アプリを停止する場合は、
+
+: sh /root/openstack-sample-app/server-setup/web.init.sh stop
+: sh /root/openstack-sample-app/server-setup/rest.init.sh stop
+
+  再起動は以下で行えます。
+
+: sh /root/openstack-sample-app/server-setup/web.init.sh restart
+: sh /root/openstack-sample-app/server-setup/rest.init.sh restart
+
 
 * 設定（詳細）
 
@@ -31,6 +44,8 @@
 : yum install -q -y git
 : cd /root
 : git clone https://github.com/irixjp/openstack-sample-app.git
+: cd openstack-sample-app
+: git checkout -b v1.0 remotes/origin/v1.0
 
 
 ** サーバ設定
@@ -62,10 +77,10 @@
 * 起動
 
 ** Webサーバ
-: sh /root/openstack-sample-app/server-setup/web.init.sh
+: sh /root/openstack-sample-app/server-setup/web.init.sh {start|stop|restart}
 
 ** ReSTサーバ
-: sh /root/openstack-sample-app/server-setup/rest.init.sh
+: sh /root/openstack-sample-app/server-setup/rest.init.sh {start|stop|restart}
 
 ** DBサーバ
    設定スクリプトの中で起動されるため、特に起動は必要ありません。
