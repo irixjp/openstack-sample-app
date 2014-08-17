@@ -15,7 +15,8 @@ def get_content():
     data = {}
     for i in model.get_content_all():
         data[i.id] = {'timestamp': i.timestamp.strftime('%Y-%m-%d %H:%M:%S'),
-                      'text': i.text.encode('utf-8')}
+                      'text': i.text.encode('utf-8'),
+                      'imageref': i.imageref}
 
     response = jsonify(data)
     response.status_code = 200
@@ -24,7 +25,7 @@ def get_content():
 @app.route('/bbs', methods=['POST'])
 def add_content():
     ret = json.loads(request.data)
-    model.add_content(ret['text'])
+    model.add_content(ret['text'], ret['imageref'])
     response = jsonify(ret)
     response.status_code = 201
     return response

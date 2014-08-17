@@ -14,15 +14,15 @@ class SimpleRestClient(object):
     def get_contents(self):
         return self._get(self._endpoint)
 
-    def post_content(self, data):
-        return self._post(self._endpoint, data)
+    def post_content(self, data, imageref):
+        return self._post(self._endpoint, data, imageref)
 
     def _get(self, url):
         resp, contents = self._client.request(url, "GET")
         return json.loads(contents)
 
-    def _post(self, url, text):
-        data = json.dumps({"text": text})
+    def _post(self, url, text, imageref=""):
+        data = json.dumps({"text": text , "imageref": imageref})
         resp, contents = self._client.request(url, "POST", data)
         return resp
-    
+
