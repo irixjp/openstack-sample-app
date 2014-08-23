@@ -55,4 +55,4 @@ def index():
 if __name__ == '__main__':
     s = SwiftUploader()
     s.initialize_container()
-    app.run(host="0.0.0.0", port=8080, debug=True)
+    app.run(host="0.0.0.0", port=80, debug=True)
