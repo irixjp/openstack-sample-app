@@ -49,7 +49,7 @@
 : cd /root
 : git clone https://github.com/irixjp/openstack-sample-app.git
 : cd openstack-sample-app
-: git checkout -b v1.0 remotes/origin/v1.0
+: git checkout -b v2.0 remotes/origin/v2.0
 
 
 ** サーバ設定
