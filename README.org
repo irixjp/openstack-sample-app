@@ -72,15 +72,15 @@
 : [rest-server]
 : rest_host = 127.0.0.1 ← 実際のアドレスへ書き換え
 : rest_endpoint = http://%(rest_host)s:5555/bbs
-:
+: 
 : [db-server]
 : db_host = localhost ← 実際のアドレスへ書き換え
 : db_endpoint = mysql://user:password@%(db_host)s/sample_bbs?charset=utf8
-:
+: 
 : [swift]
 : container_name = sample_bbs
 : upload_path = /tmp/flask/
-:
+: 
 : keystone_url = https://region-a.geo-1.identity.hpcloudsvc.com:35357/v2.0/ ← エンドポイント名
 : region_name = region-b.geo-1 ← リージョン名
 : tenant_name = tenant_name ← テナント名
