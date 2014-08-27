@@ -20,6 +20,7 @@ def get_content():
 
     response = jsonify(data)
     response.status_code = 200
+    db.session.close()
     return response
 
 @app.route('/bbs', methods=['POST'])
@@ -28,6 +29,7 @@ def add_content():
     model.add_content(ret['text'], ret['imageref'])
     response = jsonify(ret)
     response.status_code = 201
+    db.session.close()
     return response
 
 
