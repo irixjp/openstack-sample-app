@@ -18,7 +18,7 @@
         <td>{{ i[1]['timestamp'] }}</td>
         <td>{{ i[1]['text'] }}</td>
       </tr>
-          {% if i[1]['imageref'] != '' %}
+          {% if i[1]['imageref'] != None %}
           <tr>
             <td></td>
             <td><a href="{{ i[1]['imageref'] }}" target="_blank"><img border="0" src="{{ i[1]['imageref'] }}" height="128"></a></td>
